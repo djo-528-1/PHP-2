@@ -14,9 +14,11 @@
          * @var string $password пароль пользователя
          */
         private $password;
+        public static $counter = 0;
 
         function __construct(string $name, string $login, string $password)
         {
+            self::$counter++;
             $this->name = $name;
             $this->login = $login;
             $this->password = $password;

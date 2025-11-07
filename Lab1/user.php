@@ -34,11 +34,16 @@
     $user2->showInfo();
     $user3->showInfo();
 
-    $user = new SuperUser('Admin', 'loginAdmin', 'passwordAdmin', 'admin');
-    $user->showInfo();
+    $super_user = new SuperUser('Admin', 'loginAdmin', 'passwordAdmin', 'admin');
+    $super_user->showInfo();
+    print_r($super_user->getInfo());
+    echo '<br>';
+
+    echo 'Всего обычных пользователей: ' . User::$counter . '<br>';
+    echo 'Всего супер пользователей: ' . SuperUser::$counter . '<br>';
 
     unset($user1);
     unset($user2);
     unset($user3);
-    unset($user);
+    unset($super_user);
 ?>

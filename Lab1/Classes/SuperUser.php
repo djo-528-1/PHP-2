@@ -6,9 +6,11 @@
          * @var $role роль пользователя
          */
         public $role;
+        public static $counter = 0;
 
         function __construct(string $name, string $login, string $password, string $role)
         {
+            self::$counter++;
             parent::__construct($name, $login, $password);
             $this->role = $role;
         }
@@ -23,6 +25,21 @@
         }
 
         function getInfo()
-        {}
+        {
+            $result = [];
+            $rc = new \ReflectionClass($this);
+            $attributes = $rc->getProperties();
+
+            foreach ($attributes as $attribute)
+            {
+                if (!$attribute->isStatic())
+                {
+                    $name = $attribute->getName();
+                    $result[$name] = $this->{$name};
+                }
+            }
+
+            return $result;
+        }
     }
 ?>
