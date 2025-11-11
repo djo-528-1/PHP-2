@@ -11,7 +11,9 @@
         function __construct(string $name, string $login, string $password, string $role)
         {
             self::$counter++;
-            parent::__construct($name, $login, $password);
+            $this->name = $name;
+            $this->login = $login;
+            $this->password = $password;
             $this->role = $role;
         }
         /**

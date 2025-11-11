@@ -13,7 +13,7 @@
         /**
          * @var string $password пароль пользователя
          */
-        private $password;
+        protected $password;
         public static $counter = 0;
 
         function __construct(string $name, string $login, string $password)
