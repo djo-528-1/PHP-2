@@ -13,27 +13,27 @@ class NumbersSquared implements Iterator
         $this->current = $start;
     }
 
-    public function rewind()
+    public function rewind() : void
     {
         $this->current = $this->start;
     }
 
-    public function valid()
+    public function valid() : bool
     {
         return $this->current <= $this->end;
     }
 
-    public function next()
+    public function next() : void
     {
         $this->current++;
     }
 
-    public function key()
+    public function key() : mixed
     {
         return $this->current;
     }
 
-    public function current()
+    public function current() : mixed
     {
         return $this->current ** 2;
     }
@@ -42,5 +42,5 @@ class NumbersSquared implements Iterator
 $numsqr = new NumbersSquared(3, 7);
 foreach ($numsqr as  $num => $square)
 {
-    echo "Квадрат числа $num = $square\n";
+    echo "Квадрат числа $num = $square<br>";
 }
