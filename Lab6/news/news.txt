@@ -1,0 +1,13 @@
+CREATE TABLE msgs(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	title TEXT,
+	category INTEGER,
+	description TEXT,
+	source TEXT,
+	datetime INTEGER
+);
+
+CREATE TABLE category(
+	id INTEGER,
+	name TEXT
+);
