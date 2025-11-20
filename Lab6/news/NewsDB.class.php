@@ -21,7 +21,7 @@ class NewsDB implements INewsDB
                 $sql = file_get_contents('news.txt');
                 $this->_db->exec($sql);
 
-                $sql_category = "INSERT INTO categord (id, name) VALUES (1, 'Политика'), (2, 'Культура'), (3, 'Спорт');";
+                $sql_category = "INSERT INTO category (id, name) VALUES (1, 'Политика'), (2, 'Культура'), (3, 'Спорт');";
                 $this->_db->exec($sql_category);
                 $this->_db->commit();
             }

@@ -53,10 +53,14 @@ class NewsDB implements INewsDB, IteratorAggregate
         $stmt->bindValue(':description', $description, SQLITE3_TEXT);
         $stmt->bindValue(':source', $source, SQLITE3_TEXT);
         $stmt->bindValue(':datetime', $dt, SQLITE3_INTEGER);
+        
+        $result = $stmt->execute();
 
-        $this->createRss();
-
-        return $stmt->execute() !== false;
+        if ($result !== false)
+        {
+            $this->createRss();
+        }
+        return $result !== false;
     }
 
     function getNews()
